@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.power_list1;
+package edu.cnm.deepdive.powerlist1.controller;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import edu.cnm.deepdive.powerlist1.R;
+import edu.cnm.deepdive.powerlist1.SecondFragmentArgs;
 
 public class SecondFragment extends Fragment {
 

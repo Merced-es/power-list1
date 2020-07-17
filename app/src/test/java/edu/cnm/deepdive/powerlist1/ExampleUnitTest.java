@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.power_list1;
+package edu.cnm.deepdive.powerlist1;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.power_list1;
+package edu.cnm.deepdive.powerlist1;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

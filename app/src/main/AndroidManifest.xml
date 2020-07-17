@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="edu.cnm.deepdive.power_list1">
+  package="edu.cnm.deepdive.powerlist1">
 
   <application
     android:allowBackup="true"
@@ -11,7 +11,7 @@
     android:theme="@style/AppTheme">
     <activity
       android:label="@string/app_name"
-      android:name=".MainActivity"
+      android:name="edu.cnm.deepdive.powerlist1.controller.MainActivity"
       android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>

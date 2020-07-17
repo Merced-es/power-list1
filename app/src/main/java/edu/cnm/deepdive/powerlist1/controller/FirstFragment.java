@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.power_list1;
+package edu.cnm.deepdive.powerlist1.controller;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import edu.cnm.deepdive.powerlist1.FirstFragmentDirections;
+import edu.cnm.deepdive.powerlist1.FirstFragmentDirections.ActionFirstFragmentToSecondFragment;
+import edu.cnm.deepdive.powerlist1.R;
 
 public class FirstFragment extends Fragment {
 
@@ -26,7 +29,7 @@ public class FirstFragment extends Fragment {
     view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        FirstFragmentDirections.ActionFirstFragmentToSecondFragment action =
+        ActionFirstFragmentToSecondFragment action =
             FirstFragmentDirections.
                 actionFirstFragmentToSecondFragment("From FirstFragment");
         NavHostFragment.findNavController(FirstFragment.this)

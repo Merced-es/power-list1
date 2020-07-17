@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.power_list1;
+package edu.cnm.deepdive.powerlist1.controller;
 
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import edu.cnm.deepdive.powerlist1.R;
 
 public class MainActivity extends AppCompatActivity {
 
