@@ -12,7 +12,6 @@ import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 import java.util.Collection;
-import java.util.List;
 
 public class ListRepository {
 
@@ -35,7 +34,7 @@ public class ListRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  public LiveData<List<ListWithItem>> getAll() {
+  public LiveData<java.util.List<ListWithItem>> getAll() {
     return listDao.selectAll();
   }
 

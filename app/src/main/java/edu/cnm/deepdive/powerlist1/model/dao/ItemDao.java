@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.powerlist1.model.entity.Item;
-import edu.cnm.deepdive.powerlist1.model.entity.List;
 import edu.cnm.deepdive.powerlist1.model.pojo.ItemWithList;
 import io.reactivex.Single;
 import java.util.Collection;
