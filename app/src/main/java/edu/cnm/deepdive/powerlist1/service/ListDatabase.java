@@ -8,7 +8,7 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import edu.cnm.deepdive.powerlist1.model.dao.GoalDao;
 import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
-import edu.cnm.deepdive.powerlist1.model.dao.ListDao;
+import edu.cnm.deepdive.powerlist1.model.dao.PowerListDao;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.entity.Item;
 import edu.cnm.deepdive.powerlist1.model.pojo.ListType;
@@ -34,7 +34,7 @@ public abstract class ListDatabase extends RoomDatabase {
 
   public abstract GoalDao getGoalDao();
 
-  public abstract ListDao getListDao();
+  public abstract PowerListDao getListDao();
 
   public abstract ItemDao getItemDao();
 

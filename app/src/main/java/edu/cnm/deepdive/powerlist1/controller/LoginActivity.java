@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     if (requestCode == LOGIN_REQUEST_CODE) {
       repository.completeSignIn(data)
           .addOnSuccessListener((account) -> switchToMain())
-          .addOnFailureListener((ex) ->
+          .addOnFailureListener((throwable) ->
               Toast.makeText(this, R.string.login_failure, Toast.LENGTH_LONG).show());
     } else {
       super.onActivityResult(requestCode, resultCode, data);
@@ -50,5 +50,3 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-
-}

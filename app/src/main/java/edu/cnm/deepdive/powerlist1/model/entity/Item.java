@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity(
     indices = @Index(value = "name", unique = true),
     foreignKeys = @ForeignKey(
-        entity = List.class,
+        entity = PowerList.class,
         parentColumns = "list_id",
         childColumns = "list_id",
         onDelete = ForeignKey.SET_NULL

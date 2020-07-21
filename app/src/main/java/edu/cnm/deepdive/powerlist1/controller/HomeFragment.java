@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import edu.cnm.deepdive.powerlist1.R;
-import edu.cnm.deepdive.powerlist1.controller.FirstFragmentDirections.ActionFirstFragmentToSecondFragment;
+import edu.cnm.deepdive.powerlist1.controller.HomeFragmentDirections.ActionHomeFragmentToSecondFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -27,9 +27,9 @@ public class HomeFragment extends Fragment {
     view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        ActionFirstFragmentToSecondFragment action =
-            FirstFragmentDirections.
-                actionFirstFragmentToSecondFragment("From FirstFragment");
+        ActionHomeFragmentToSecondFragment action =
+            HomeFragmentDirections.
+                actionHomeFragmentToSecondFragment("From HomeFragment");
         NavHostFragment.findNavController(HomeFragment.this)
             .navigate(action);
       }

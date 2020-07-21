@@ -16,11 +16,11 @@ import edu.cnm.deepdive.powerlist1.model.pojo.ListType;
         onDelete = ForeignKey.SET_NULL
     )
 )
-public class List {
+public class PowerList {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "list_id")
-    private long listId;
+    private Long listId;
 
     private String listName;
 

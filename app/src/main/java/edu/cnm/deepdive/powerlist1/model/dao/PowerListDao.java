@@ -8,13 +8,14 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
-import edu.cnm.deepdive.powerlist1.model.pojo.ListWithItem;
+import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
+import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
 @Dao
-public interface ListDao {
+public interface PowerListDao {
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   Single<Long> insert(List list);
@@ -29,13 +30,13 @@ public interface ListDao {
   Single<Integer> update(List... lists);
 
   @Delete
-  Single<Integer> delete(edu.cnm.deepdive.powerlist1.model.entity.List lists);
+  Single<Integer> delete(PowerList lists);
 
-  @Query("SELECT * FROM List WHERE list_id = :listId")
-  Single<edu.cnm.deepdive.powerlist1.model.entity.List> selectById(long listId);
+  @Query("SELECT * FROM PowerList WHERE list_id = :listId")
+  Single<PowerList> selectById(long listId);
 
   @Transaction
-  @Query("SELECT * FROM List ORDER BY listName")
-  LiveData<List<ListWithItem>> selectAll();
+  @Query("SELECT * FROM PowerList ORDER BY listName")
+  LiveData<List<PowerListWithItem>> selectAll();
 
 }

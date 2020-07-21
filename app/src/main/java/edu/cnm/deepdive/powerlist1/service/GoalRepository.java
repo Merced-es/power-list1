@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.powerlist1.model.dao.GoalDao;
 import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
-import edu.cnm.deepdive.powerlist1.model.dao.ListDao;
+import edu.cnm.deepdive.powerlist1.model.dao.PowerListDao;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
 import io.reactivex.Completable;
@@ -16,7 +16,7 @@ public class GoalRepository {
 
   private final edu.cnm.deepdive.powerlist1.service.ListDatabase database;
   private final GoalDao goalDao;
-  private final ListDao listDao;
+  private final PowerListDao powerListDao;
   private final ItemDao itemDao;
   private final Context context;
 
@@ -24,7 +24,7 @@ public class GoalRepository {
     this.context = context;
     database = edu.cnm.deepdive.powerlist1.service.ListDatabase.getInstance();
     goalDao = database.getGoalDao();
-    listDao = database.getListDao();
+    powerListDao = database.getListDao();
     itemDao = database.getItemDao();
   }
 

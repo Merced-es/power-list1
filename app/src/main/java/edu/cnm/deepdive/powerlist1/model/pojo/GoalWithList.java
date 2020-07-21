@@ -2,18 +2,18 @@ package edu.cnm.deepdive.powerlist1.model.pojo;
 
 import androidx.room.Relation;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.entity.List;
+import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 
 public class GoalWithList extends Goal {
 
-  @Relation(entity = List.class, entityColumn = "list_id", parentColumn = "list_id")
-  private List list;
+  @Relation(entity = PowerList.class, entityColumn = "list_id", parentColumn = "list_id")
+  private PowerList powerListId;
 
-  public List getList() {
-    return list;
+  public PowerList getPowerList() {
+    return powerListId;
   }
 
-  public void setList(List list) {
-    this.list = list;
+  public void setPowerList(PowerList powerList) {
+    this.powerListId = powerListId;
   }
 }
