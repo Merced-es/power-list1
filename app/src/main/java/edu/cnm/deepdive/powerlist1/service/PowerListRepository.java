@@ -26,7 +26,7 @@ public class PowerListRepository {
     this.context = context;
     database = ListDatabase.getInstance();
     goalDao = database.getGoalDao();
-    powerListDao = database.getListDao();
+    powerListDao = database.getPowerListDao();
     itemDao = database.getItemDao();
   }
 
@@ -35,16 +35,16 @@ public class PowerListRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  public LiveData<java.util.List<PowerListWithItem>> getAll() {
+  public LiveData<List<PowerListWithItem>> getAll() {
     return powerListDao.selectAll();
   }
 
   public Completable save(PowerList powerList) {
     if (powerList.getListId() == 0) {
-      return Completable.fromSingle(itemDao.insert((Collection<Item>) powerList))
+      return Completable.fromSingle(powerListDao.insert(powerList))
           .subscribeOn(Schedulers.io());
     } else {
-      return Completable.fromSingle(itemDao.update((List) powerList))
+      return Completable.fromSingle(powerListDao.update(powerList))
           .subscribeOn(Schedulers.io());
     }
   }

@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.powerlist1.model.entity.Item;
 import edu.cnm.deepdive.powerlist1.model.pojo.ItemWithList;
@@ -26,11 +27,12 @@ public interface ItemDao {
   Single<List<Long>> insert(Collection<Item> items);
 
   @Update
-  Single<Integer> update(List items);
+  Single<Integer> update(Item items);
 
   @Delete
   Single<Integer> delete(Item... items);
 
+  @Transaction
   @Query("SELECT * FROM Item ORDER BY name")
   LiveData<List<ItemWithList>> selectAll();
 

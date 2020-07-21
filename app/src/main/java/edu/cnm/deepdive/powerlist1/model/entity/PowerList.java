@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.powerlist1.model.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -20,8 +21,9 @@ public class PowerList {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "list_id")
-    private Long listId;
+    private long listId;
 
+    @ColumnInfo(name = "list_name", collate = ColumnInfo.NOCASE)
     private String listName;
 
     @ColumnInfo(name = "goal_id", index = true)

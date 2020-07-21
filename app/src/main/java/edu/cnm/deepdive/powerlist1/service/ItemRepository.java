@@ -24,7 +24,7 @@ public class ItemRepository {
     this.context = context;
     database = ListDatabase.getInstance();
     goalDao = database.getGoalDao();
-    powerListDao = database.getListDao();
+    powerListDao = database.getPowerListDao();
     itemDao = database.getItemDao();
   }
 
@@ -42,7 +42,7 @@ public class ItemRepository {
       return Completable.fromSingle(itemDao.insert(item))
           .subscribeOn(Schedulers.io());
     } else {
-      return Completable.fromSingle(itemDao.update((List) item))
+      return Completable.fromSingle(itemDao.update(item))
           .subscribeOn(Schedulers.io());
 
     }

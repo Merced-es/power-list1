@@ -6,14 +6,14 @@ import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 
 public class GoalWithList extends Goal {
 
-  @Relation(entity = PowerList.class, entityColumn = "list_id", parentColumn = "list_id")
-  private PowerList powerListId;
+  @Relation(entity = PowerList.class, entityColumn = "goal_id", parentColumn = "goal_id")
+  private PowerList powerList;
 
   public PowerList getPowerList() {
-    return powerListId;
+    return powerList;
   }
 
   public void setPowerList(PowerList powerList) {
-    this.powerListId = powerListId;
+    this.powerList = powerList;
   }
 }

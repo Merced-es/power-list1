@@ -18,25 +18,25 @@ import java.util.List;
 public interface PowerListDao {
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  Single<Long> insert(List list);
+  Single<Long> insert(PowerList powerList);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  Single<List<Long>> insert(List... lists);
+  Single<List<Long>> insert(PowerList... powerLists);
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
-  Single<List<Long>> insert(Collection<List> lists);
+  Single<List<Long>> insert(Collection<PowerList> powerLists);
 
   @Update
-  Single<Integer> update(List... lists);
+  Single<Integer> update(PowerList... powerLists);
 
   @Delete
-  Single<Integer> delete(PowerList lists);
+  Single<Integer> delete(PowerList powerLists);
 
   @Query("SELECT * FROM PowerList WHERE list_id = :listId")
   Single<PowerList> selectById(long listId);
 
   @Transaction
-  @Query("SELECT * FROM PowerList ORDER BY listName")
+  @Query("SELECT * FROM PowerList ORDER BY list_name")
   LiveData<List<PowerListWithItem>> selectAll();
 
 }

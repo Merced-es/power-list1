@@ -11,13 +11,13 @@ import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
 import edu.cnm.deepdive.powerlist1.model.dao.PowerListDao;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.entity.Item;
+import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 import edu.cnm.deepdive.powerlist1.model.pojo.ListType;
 import edu.cnm.deepdive.powerlist1.service.ListDatabase.Converters;
 import java.util.Date;
-import java.util.List;
 
 @Database(
-    entities = {Goal.class, List.class, Item.class},
+    entities = {Goal.class, PowerList.class, Item.class},
     version = 1,
     exportSchema = true
 )
@@ -34,7 +34,7 @@ public abstract class ListDatabase extends RoomDatabase {
 
   public abstract GoalDao getGoalDao();
 
-  public abstract PowerListDao getListDao();
+  public abstract PowerListDao getPowerListDao();
 
   public abstract ItemDao getItemDao();
 

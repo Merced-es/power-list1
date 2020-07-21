@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
@@ -31,6 +32,7 @@ public interface GoalDao {
   @Delete
   Single<Integer> delete(Goal... goals);
 
+  @Transaction
   @Query("SELECT * FROM Goal ORDER BY title")
   LiveData<List<GoalWithList>> selectAll();
 

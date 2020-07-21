@@ -24,8 +24,8 @@ public class Item {
   @ColumnInfo(name = "item_id")
   private long itemId;
 
-  @ColumnInfo(index = true)
-  private Long listId;
+  @ColumnInfo(name = "list_id", index = true)
+  private long listId;
 
   @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
@@ -42,6 +42,9 @@ public class Item {
 
   @ColumnInfo(index = true)
   private int sequence;
+
+  public Item() {
+  }
 
   public long getItemId() {
     return itemId;
@@ -93,5 +96,9 @@ public class Item {
 
   public Long getListId() {
     return listId;
+  }
+
+  public void setListId(long listId) {
+    this.listId = listId;
   }
 }

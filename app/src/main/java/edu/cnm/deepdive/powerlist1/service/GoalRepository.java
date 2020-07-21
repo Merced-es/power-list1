@@ -24,7 +24,7 @@ public class GoalRepository {
     this.context = context;
     database = edu.cnm.deepdive.powerlist1.service.ListDatabase.getInstance();
     goalDao = database.getGoalDao();
-    powerListDao = database.getListDao();
+    powerListDao = database.getPowerListDao();
     itemDao = database.getItemDao();
   }
 

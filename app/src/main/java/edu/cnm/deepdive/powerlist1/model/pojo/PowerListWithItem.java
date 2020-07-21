@@ -6,7 +6,7 @@ import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 
 public class PowerListWithItem extends PowerList {
 
-  @Relation(entity = Item.class, entityColumn = "item_id", parentColumn = "item_id")
+  @Relation(entity = Item.class, entityColumn = "list_id", parentColumn = "list_id")
   private Item item;
 
   public Item getItem() {
