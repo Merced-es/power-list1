@@ -51,9 +51,6 @@ public class NavigationActivity extends AppCompatActivity implements View.OnClic
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_navigation);
-    ImageView imageView = findViewById(R.id.rotating_image);
-    AnimationDrawable animationDrawable = (AnimationDrawable) imageView.getDrawable();
-    animationDrawable.start();
     Button button1 = findViewById(R.id.itinerary);
     Button button2 = findViewById(R.id.accommodation);
     Button button3 = findViewById(R.id.points_of_interest);

@@ -3,27 +3,29 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_graph"
-  app:startDestination="@id/home_fragment">
+  app:startDestination="@id/second_fragment">
 
-  <fragment
-    android:id="@+id/home_fragment"
-    android:label="@string/home_fragment"
-    android:name="edu.cnm.deepdive.powerlist1.controller.HomeFragment"
-    tools:layout="@layout/fragment_home">
-
-    <action
-      android:id="@+id/action_HomeFragment_to_SecondFragment"
-      app:destination="@id/second_fragment"/>
-  </fragment>
   <fragment
     android:id="@+id/second_fragment"
-    android:label="@string/second_fragment"
+    android:label="Home"
     android:name="edu.cnm.deepdive.powerlist1.controller.SecondFragment"
-    tools:layout="@layout/fragment_second">
+    tools:layout="@layout/activity_navigation">
 
     <action
-      android:id="@+id/action_SecondFragment_to_HomeFragment"
-      app:destination="@id/home_fragment"/>
+      android:id="@+id/action_SecondFragment_to_GoalsFragment"
+      app:destination="@id/goals_fragment"/>
+  </fragment>
+
+
+  <fragment
+    android:id="@+id/power_list_fragment"
+    android:label="Power Lists"
+    android:name="edu.cnm.deepdive.powerlist1.controller.PowerListFragment"
+    tools:layout="@layout/activity_main">
+
+    <action
+      android:id="@+id/action_power_list_fragment_to_power_list_edit_fragment"
+      app:destination="@id/power_list_edit_edit_fragment"/>
 
     <argument
       android:name="myArg"
