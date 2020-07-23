@@ -46,16 +46,16 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     return throwable;
   }
 
-  public void setGoalId(long id) {
-    throwable.setValue(null);
-    pending.add(
-        goalRepository.get(id)
-            .subscribe(
-                (goal) -> this.goal.postValue(goal),
-                (throwable) -> this.throwable.postValue(throwable)
-            )
-    );
-  }
+//  public void setGoalId(long id) {
+//    throwable.setValue(null);
+//    pending.add(
+//        goalRepository.get(id)
+//            .subscribe(
+//                (goal) -> this.goal.postValue(goal),
+//                (throwable) -> this.throwable.postValue(throwable)
+//            )
+//    );
+//  }
 
   public void saveGoal(Goal goal) {
     throwable.setValue(null);

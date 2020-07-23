@@ -3,11 +3,14 @@ package edu.cnm.deepdive.powerlist1.controller;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import edu.cnm.deepdive.powerlist1.R;
@@ -26,18 +29,23 @@ public class GoalFragment extends Fragment implements GoalAdapter.OnClickListene
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //noinspection ConstantConditions
-        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
-        mainViewModel.getGoals().observe(getViewLifecycleOwner(), (goals) -> {
-            goalList.setAdapter(new GoalAdapter(getContext(), goals, this));
-        });
+//        mainViewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
+//        mainViewModel.getGoals().observe(getViewLifecycleOwner(), (goals) -> {
+//            goalList.setAdapter(new GoalAdapter(getContext(), goals, this));
+//        });
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_goal, container, false);
-        goalList = root.findViewById(R.id.goal_list);
-        addGoal = root.findViewById(R.id.add_goal);
-        addGoal.setOnClickListener((v) -> editGoal(0));
+        Button homeButton = root.findViewById(R.id.home_button);
+
+        homeButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(root).navigate(R.id.goal_to_home);
+            }
+        });
         return root;
     }
 

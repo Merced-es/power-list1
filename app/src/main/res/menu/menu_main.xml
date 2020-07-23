@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
   <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-      android:id="@+id/goals_button"
-      android:icon=""
-      android:title="Goals"/>
+<!--    <item-->
+<!--      android:id="@+id/goals_button"-->
+<!--      android:icon=""-->
+<!--      android:title="Goals"/>-->
 
-    <item
-      android:id="@+id/power_list_button"
-      android:icon="@drawable/ic_quote"
-      android:title="Power Lists"/>
+<!--    <item-->
+<!--      android:id="@+id/power_list_button"-->
+<!--      android:icon="@drawable/ic_quote"-->
+<!--      android:title="Power Lists"/>-->
 
-    <item
-      android:id="@+id/vision_board_button"
-      android:icon="@drawable/ic_notifications_black_24dp"
-      android:title="Vision Board"/>
+<!--    <item-->
+<!--      android:id="@+id/vision_board_button"-->
+<!--      android:icon="@drawable/ic_notifications_black_24dp"-->
+<!--      android:title="Vision Board"/>-->
 
-  <item
-    android:id="@+id/sign_out"
-  android:title="Sign Out"
-  app:showAsAction="never"/>
+<!--  <item-->
+<!--    android:id="@+id/sign_out"-->
+<!--  android:title="Sign Out"-->
+<!--  app:showAsAction="never"/>-->
   </menu>
 

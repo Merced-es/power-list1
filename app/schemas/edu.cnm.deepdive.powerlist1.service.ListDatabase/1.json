@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "51d3159d2fdaefa90afbd947286cee5a",
+    "identityHash": "aab527c02bc57c079a6de4fd824751d5",
     "entities": [
       {
         "tableName": "Goal",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`goal_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL COLLATE NOCASE, `start` INTEGER NOT NULL, `end` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`goal_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL COLLATE NOCASE, `start` INTEGER NOT NULL, `end` INTEGER, `text` TEXT NOT NULL COLLATE NOCASE)",
         "fields": [
           {
             "fieldPath": "goalId",
@@ -31,6 +31,12 @@
             "columnName": "end",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -247,7 +253,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '51d3159d2fdaefa90afbd947286cee5a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'aab527c02bc57c079a6de4fd824751d5')"
     ]
   }
 }
