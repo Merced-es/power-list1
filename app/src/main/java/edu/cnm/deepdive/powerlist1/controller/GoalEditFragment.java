@@ -1,56 +1,53 @@
 package edu.cnm.deepdive.powerlist1.controller;
 
-import android.content.Intent;
+import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import android.widget.TextView;
+import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.powerlist1.R;
+import edu.cnm.deepdive.powerlist1.model.entity.Goal;
+import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
+import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
+import java.util.List;
 
+/**
+ * A simple {@link Fragment} subclass. New Instance creates a new goal.
+ */
 public class GoalEditFragment extends Fragment {
 
-  @Override
-  public View onCreateView(
-      LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_goal_edit, container, false);
-  }
+    private static final String ID_KEY = "goal_id";
 
-  public class NavigationActivity extends AppCompatActivity implements View.OnClickListener {
+    private long goalId;
+    private EditText goalText;
+    private MainViewModel viewModel;
+    private Goal goal;
+    private List<PowerList> powerLists;
 
-    private Button button;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
-      setContentView(R.layout.activity_navigation);
-      Button button1 = findViewById(R.id.goals_fragment);
-      Button button2 = findViewById(R.id.power_list_fragment);
-      Button button3 = findViewById(R.id.vision_board_fragment);
-      button1.setOnClickListener(this);
-      button2.setOnClickListener(this);
-      button3.setOnClickListener(this);
+    public static GoalEditFragment newInstance(long goalId) {
+        GoalEditFragment fragment = new GoalEditFragment();
+        Bundle args = new Bundle();
+        args.putLong(ID_KEY, goalId);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
-    public void onClick(View v) {
-      Intent intent;
-      switch (v.getId()) {
-        case R.id.goals_fragment:
-          intent = new Intent(this, GoalsFragment.class);
-          break;
-        case R.id.power_list_fragment:
-          intent = new Intent(this, PowerListFragment.class);
-          break;
-        case R.id.vision_board_fragment:
-          intent = new Intent(this, VisionBoardFragment.class);
-          break;
-      }
-      startActivity(intent);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            goalId = getArguments().getLong(ID_KEY, 0);
+        }
     }
+}
 
-  }

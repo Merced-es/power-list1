@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     repository = GoogleSignInService.getInstance();
     repository.refresh()
-        .addOnSuccessListener((account) -> switchToMain())
+        .addOnSuccessListener((account) -> switchToNavigationActivity())
         .addOnFailureListener((ex) -> {
           setContentView(R.layout.activity_login);
           findViewById(R.id.sign_in).setOnClickListener((v) ->
@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity {
   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     if (requestCode == LOGIN_REQUEST_CODE) {
       repository.completeSignIn(data)
-          .addOnSuccessListener((account) -> switchToMain())
+          .addOnSuccessListener((account) -> switchToNavigationActivity())
           .addOnFailureListener((throwable) ->
               Toast.makeText(this, R.string.login_failure, Toast.LENGTH_LONG).show());
     } else {
@@ -39,14 +39,9 @@ public class LoginActivity extends AppCompatActivity {
     }
   }
 
-  private void switchToMain() {
+  private void switchToNavigationActivity() {
     Intent intent = new Intent(this, MainActivity.class);
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
   }
-
 }
-
-
-
-

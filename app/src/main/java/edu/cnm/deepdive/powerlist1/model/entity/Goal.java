@@ -29,6 +29,11 @@ public class Goal {
   @ColumnInfo(index = true)
   private Date end;
 
+  @NonNull
+  @ColumnInfo(collate = ColumnInfo.NOCASE)
+  private String text = "";
+
+
   public long getGoalId() {
     return goalId;
   }
@@ -61,6 +66,15 @@ public class Goal {
 
   public void setEnd(Date end) {
     this.end = end;
+  }
+
+  @NonNull
+  public String getText() {
+    return text;
+  }
+
+  public void setText(@NonNull String text) {
+    this.text = text;
   }
 }
 
