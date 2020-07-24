@@ -12,11 +12,21 @@
     android:id="@+id/home_button"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="@dimen/half_margin"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     android:text="@string/home_button"/>
+
+  <Button
+    android:id="@+id/power_list_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/home_button"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:text="@string/power_lists"/>
 
 
 

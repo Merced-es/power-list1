@@ -14,7 +14,7 @@
       android:id="@+id/home_to_goal"
       app:destination="@id/goal_fragment2"/>
     <action
-      android:id="@+id/action_homeFragment_to_powerListFragment"
+      android:id="@+id/home_to_powerlist"
       app:destination="@id/power_list_fragment"/>
     <action
       android:id="@+id/action_homeFragment_to_visionBoardFragment"
@@ -29,7 +29,7 @@
       android:id="@+id/action_goalFragment2_to_goalEditFragment"
       app:destination="@id/goal_edit_fragment"/>
     <action
-      android:id="@+id/action_goalFragment2_to_powerListFragment"
+      android:id="@+id/goal_to_powerlist"
       app:destination="@id/power_list_fragment"/>
     <action
       android:id="@+id/goal_to_home"

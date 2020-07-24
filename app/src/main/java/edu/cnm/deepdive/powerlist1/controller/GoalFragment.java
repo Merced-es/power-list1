@@ -37,16 +37,24 @@ public class GoalFragment extends Fragment implements GoalAdapter.OnClickListene
 
     public View onCreateView(@NonNull LayoutInflater inflater,
         ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_goal, container, false);
-        Button homeButton = root.findViewById(R.id.home_button);
+        View view = inflater.inflate(R.layout.fragment_goal, container, false);
+        Button homeButton = view.findViewById(R.id.home_button);
+        Button powerListButton = view.findViewById(R.id.power_list_button);
 
         homeButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Navigation.findNavController(root).navigate(R.id.goal_to_home);
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.goal_to_home);
             }
         });
-        return root;
+
+        powerListButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.goal_to_powerlist);
+            }
+        });
+        return view;
     }
 
     @Override

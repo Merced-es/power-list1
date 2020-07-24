@@ -16,6 +16,7 @@
   <string name="unattributed_power_list">No power lists created.</string>
   <string name="this_is_goal_fragment">this is goal fragment</string>
   <string name="home_button">Home</string>
+  <string name="power_lists">Power Lists</string>
 
 
 </resources>

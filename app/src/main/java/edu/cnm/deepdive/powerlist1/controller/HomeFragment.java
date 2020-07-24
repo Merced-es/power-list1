@@ -10,7 +10,6 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import edu.cnm.deepdive.powerlist1.R;
 
 public class HomeFragment extends Fragment {
@@ -21,6 +20,7 @@ public class HomeFragment extends Fragment {
       Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.fragment_home, container, false);
     Button goalButton = view.findViewById(R.id.goals_button);
+    Button powerListButton = view.findViewById(R.id.power_list_button);
 
     goalButton.setOnClickListener(new OnClickListener() {
       @Override
@@ -29,9 +29,15 @@ public class HomeFragment extends Fragment {
       }
     });
 
-
+    powerListButton.setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Navigation.findNavController(view).navigate(R.id.home_to_powerlist);
+      }
+    });
     return view;
   }
+
 
   public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
 
