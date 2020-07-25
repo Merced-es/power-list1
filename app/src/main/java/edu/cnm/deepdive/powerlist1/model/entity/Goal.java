@@ -23,13 +23,6 @@ public class Goal {
   private String title;
 
   @NonNull
-  @ColumnInfo(index = true)
-  private Date start;
-
-  @ColumnInfo(index = true)
-  private Date end;
-
-  @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String text = "";
 
@@ -52,29 +45,18 @@ public class Goal {
   }
 
   @NonNull
-  public Date getStart() {
-    return start;
-  }
-
-  public void setStart(@NonNull Date start) {
-    this.start = start;
-  }
-
-  public Date getEnd() {
-    return end;
-  }
-
-  public void setEnd(Date end) {
-    this.end = end;
-  }
-
-  @NonNull
   public String getText() {
     return text;
   }
 
   public void setText(@NonNull String text) {
     this.text = text;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return text;
   }
 }
 

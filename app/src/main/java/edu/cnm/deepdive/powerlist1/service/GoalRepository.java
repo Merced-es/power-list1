@@ -16,7 +16,6 @@ public class GoalRepository {
 
   private final edu.cnm.deepdive.powerlist1.service.ListDatabase database;
   private final GoalDao goalDao;
-  private final PowerListDao powerListDao;
   private final ItemDao itemDao;
   private final Context context;
 
@@ -24,11 +23,10 @@ public class GoalRepository {
     this.context = context;
     database = edu.cnm.deepdive.powerlist1.service.ListDatabase.getInstance();
     goalDao = database.getGoalDao();
-    powerListDao = database.getPowerListDao();
     itemDao = database.getItemDao();
   }
 
-  public LiveData<List<GoalWithList>> getAll() {
+  public LiveData<List<Goal>> getAll() {
     return goalDao.selectAll();
   }
 

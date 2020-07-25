@@ -13,7 +13,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     android:text="Power List"
-    android:textSize="25sp"
+    android:textSize="24sp"
     app:layout_constraintVertical_chainStyle="packed"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -37,32 +37,13 @@
     android:layout_margin="8dp"
     android:text="Power Lists"
     android:textSize="20dp"
-    app:layout_constraintBottom_toTopOf="@id/vision_board_button"
+    app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@id/goals_button"/>
-  <Button
-    android:id="@+id/vision_board_button"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:text="Vision Board"
-    android:textSize="20dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/power_list_button"/>
 
 
-  <Button
-    android:id="@+id/button_second"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/previous"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/vision_board_button"
+
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

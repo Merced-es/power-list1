@@ -8,38 +8,60 @@
   tools:context="edu.cnm.deepdive.powerlist1.controller.GoalFragment">
 
 
+  <TextView
+    android:id="@+id/goals_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/goals_title"
+    android:textSize="24sp"
+    android:textAlignment="center"
+    android:padding="@dimen/half_margin"
+    android:layout_margin="@dimen/half_margin"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/home_button"
+    />
+
   <Button
     android:id="@+id/home_button"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/half_margin"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    android:text="@string/home_button"/>
+    android:layout_margin="@dimen/half_margin"
+    app:layout_constraintVertical_chainStyle="spread_inside"
+    android:text="@string/home_button"
+    android:textSize="20sp"
+    app:layout_constraintBottom_toTopOf="@id/power_list_button"
+    app:layout_constraintTop_toBottomOf="@id/goals_title"/>
 
   <Button
     android:id="@+id/power_list_button"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:layout_margin="@dimen/half_margin"
+    android:textSize="20sp"
     app:layout_constraintTop_toBottomOf="@id/home_button"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
     android:text="@string/power_lists"/>
 
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler_view"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/power_list_button"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:orientation="vertical"
+    android:background="#FFE0E0E0"
+    android:padding="@dimen/half_margin"/>
 
-
-<!--  <androidx.recyclerview.widget.RecyclerView-->
-<!--    android:id="@+id/goal_list"-->
-<!--    android:layout_width="0dp"-->
-<!--    android:layout_height="0dp"-->
-<!--    android:padding="@dimen/half_margin"-->
-<!--    android:background="#FFE0E0E0"-->
-<!--    android:orientation="vertical"-->
-<!--    app:layout_constraintBottom_toBottomOf="parent"-->
-<!--    app:layout_constraintEnd_toEndOf="parent"-->
-<!--    app:layout_constraintStart_toStartOf="parent"-->
-<!--    app:layout_constraintTop_toTopOf="parent"/>-->
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/add"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:useCompatPadding="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

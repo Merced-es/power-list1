@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+  xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/nav_graph"
@@ -16,9 +17,6 @@
     <action
       android:id="@+id/home_to_powerlist"
       app:destination="@id/power_list_fragment"/>
-    <action
-      android:id="@+id/action_homeFragment_to_visionBoardFragment"
-      app:destination="@id/vision_board_fragment"/>
   </fragment>
   <fragment
     android:id="@+id/goal_fragment2"
@@ -43,14 +41,12 @@
     <action
       android:id="@+id/action_powerListFragment_to_powerListEdit"
       app:destination="@id/power_list_edit"/>
+
     <action
-      android:id="@+id/action_powerListFragment_to_visionBoardFragment"
-      app:destination="@id/vision_board_fragment"/>
-    <action
-      android:id="@+id/action_powerListFragment_to_homeFragment"
+      android:id="@+id/powerlist_to_home"
       app:destination="@id/home_fragment"/>
     <action
-      android:id="@+id/action_powerListFragment_to_goalFragment2"
+      android:id="@+id/powerlist_to_goal"
       app:destination="@id/goal_fragment2"/>
   </fragment>
   <fragment
@@ -59,17 +55,8 @@
     android:label="fragment_goal_edit"
     tools:layout="@layout/fragment_goal_edit">
     <action
-      android:id="@+id/action_goalEditFragment_to_goalFragment2"
+      android:id="@+id/goal_edit_to_goal"
       app:destination="@id/goal_fragment2"/>
-  </fragment>
-  <fragment
-    android:id="@+id/vision_board_fragment"
-    android:name="edu.cnm.deepdive.powerlist.VisionBoardFragment"
-    android:label="fragment_vision_board"
-    tools:layout="@layout/fragment_vision_board">
-    <action
-      android:id="@+id/action_visionBoardFragment_to_homeFragment"
-      app:destination="@id/home_fragment"/>
   </fragment>
   <fragment
     android:id="@+id/power_list_edit"
@@ -77,7 +64,7 @@
     android:label="fragment_power_list_edit"
     tools:layout="@layout/fragment_power_list_edit">
     <action
-      android:id="@+id/action_powerListEdit_to_powerListFragment"
+      android:id="@+id/powerlist_edit_to_powerlist"
       app:destination="@id/power_list_fragment"/>
   </fragment>
 

@@ -6,7 +6,6 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import java.util.Date;
 
 @Entity(
     indices = @Index(value = "name", unique = true),
@@ -30,9 +29,6 @@ public class Item {
   @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String name;
-
-  @ColumnInfo()
-  private Date completed;
 
   @ColumnInfo(index = true, collate = ColumnInfo.NOCASE)
   private String description;
@@ -60,14 +56,6 @@ public class Item {
 
   public void setName(@NonNull String name) {
     this.name = name;
-  }
-
-  public Date getCompleted() {
-    return completed;
-  }
-
-  public void setCompleted(Date completed) {
-    this.completed = completed;
   }
 
   public String getDescription() {

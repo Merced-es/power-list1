@@ -65,9 +65,13 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
 
-
     // LiveData & ViewModel dependencies
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // recyclerview dependencies
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    // For control over item selection of both touch and mouse driven selection
+    implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
 
     // Material Design component dependencies
     implementation 'com.google.android.material:material:1.1.0'
