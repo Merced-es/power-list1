@@ -34,7 +34,7 @@ public interface GoalDao {
 
   @Transaction
   @Query("SELECT * FROM Goal ORDER BY title")
-  LiveData<List<GoalWithList>> selectAll();
+  LiveData<List<Goal>> selectAll();
 
   @Query("SELECT * FROM Goal WHERE goal_id = :goalId")
   Single<Goal> selectById(long goalId);

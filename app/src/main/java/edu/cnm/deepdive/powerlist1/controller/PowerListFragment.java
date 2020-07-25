@@ -19,7 +19,7 @@ import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PowerListFragment extends Fragment implements GoalAdapter.OnClickListener {
+public class PowerListFragment extends Fragment {
 
   private MainViewModel mainViewModel;
   private RecyclerView powerListList;
@@ -51,9 +51,5 @@ public class PowerListFragment extends Fragment implements GoalAdapter.OnClickLi
       }
     });
     return view;
-  }
-  @Override
-  public void onClick(View view, int position, GoalWithList goal) {
-
   }
 }

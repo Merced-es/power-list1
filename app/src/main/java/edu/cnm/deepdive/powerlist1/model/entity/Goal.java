@@ -5,7 +5,6 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import java.util.Date;
 
 
 @Entity(
@@ -16,7 +15,7 @@ public class Goal {
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "goal_id")
-  private long goalId;
+  private long id;
 
   @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
@@ -27,12 +26,12 @@ public class Goal {
   private String text = "";
 
 
-  public long getGoalId() {
-    return goalId;
+  public long getId() {
+    return id;
   }
 
-  public void setGoalId(long goalId) {
-    this.goalId = goalId;
+  public void setId(long id) {
+    this.id = id;
   }
 
   @NonNull

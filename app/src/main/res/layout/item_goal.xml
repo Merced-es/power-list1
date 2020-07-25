@@ -5,10 +5,11 @@
   android:layout_margin="5dp"
   app:cardCornerRadius="4dp"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content">
+  android:layout_height="wrap_content"
+  android:padding="@dimen/half_margin">
 
   <LinearLayout
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/half_margin"
@@ -17,17 +18,19 @@
     <TextView
       android:id="@+id/goal"
       style="@style/TitleText"
-      android:layout_width="match_parent"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_gravity="start"
+      android:layout_weight="1"
+      android:layout_gravity="center_vertical"
       android:layout_margin="@dimen/half_margin"/>
 
     <TextView
       android:id="@+id/description"
       style="@style/DescriptionText"
-      android:layout_width="match_parent"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_gravity="start"
+      android:layout_weight="2"
+      android:layout_gravity="center_vertical"
       android:layout_margin="@dimen/half_margin"/>
 
   </LinearLayout>

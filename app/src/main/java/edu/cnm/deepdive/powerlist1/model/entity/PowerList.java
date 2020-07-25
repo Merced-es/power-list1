@@ -64,4 +64,9 @@ public class PowerList {
         this.type = type;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

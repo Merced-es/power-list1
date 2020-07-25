@@ -4,9 +4,7 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.powerlist1.model.dao.GoalDao;
 import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
-import edu.cnm.deepdive.powerlist1.model.dao.PowerListDao;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
@@ -36,7 +34,7 @@ public class GoalRepository {
   }
 
   public Completable save(Goal goal) {
-    if (goal.getGoalId() == 0) {
+    if (goal.getId() == 0) {
       return Completable.fromSingle(goalDao.insert(goal))
           .subscribeOn(Schedulers.io());
     } else {
@@ -47,7 +45,7 @@ public class GoalRepository {
   }
 
   public Completable delete(Goal goal) {
-    if (goal.getGoalId() == 0) {
+    if (goal.getId() == 0) {
       return Completable.fromAction(() -> {})
           .subscribeOn(Schedulers.io());
     } else {

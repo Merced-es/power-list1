@@ -23,7 +23,6 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
   private final OnClickListener clickListener;
 
   public GoalAdapter(Context context, List<Goal> goals,
-      List<PowerListWithItem> powerLists,
       OnClickListener clickListener) {
     super();
     this.context = context;
@@ -38,10 +37,10 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
     return new Holder(view);
   }
 
-//  @Override
-//  public void onBindViewHolder(@NonNull Holder holder, int position) {
-//    holder.bind(position);
-//  }
+  @Override
+  public void onBindViewHolder(@NonNull Holder holder, int position) {
+    holder.bind(position);
+  }
 
   @Override
   public int getItemCount() {
@@ -63,20 +62,19 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
       powerList = itemView.findViewById(R.id.powerList);
     }
 
-//    private void bind(int position) {
-//      Goal item = goals.get(position);
-//      .setText(goals.getTitle());
-//      goal.setText(item.getText());
-//      powerList.setText(String.format(listName));
-//      itemView.setOnClickListener((v) -> clickListener.onClick(v, getAdapterPosition(), item));
-//    }
-
-    //  }
-//
-    public interface OnClickListener {
-
-      void onClick(View view, int position, List<Goal> goal);
-
+    private void bind(int position) {
+      Goal item = goals.get(position);
+      goal.setText(item.getTitle());
+      description.setText(item.getText());
+      itemView.setOnClickListener((v) -> clickListener.onClick(v, getAdapterPosition(), item));
     }
+
+  }
+
+  public interface OnClickListener {
+
+    void onClick(View view, int position, Goal goal);
+
   }
 }
+
