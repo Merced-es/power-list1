@@ -9,6 +9,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,12 +25,13 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass. New Instance creates a new goal.
  */
-public class GoalEditFragment extends Fragment {
+public class GoalEditFragment extends DialogFragment {
 
     private static final String ID_KEY = "goal_id";
 
     private long goalId;
-    private EditText goalText;
+    private View root;
+    private EditText goalDescription;
     private MainViewModel viewModel;
     private Goal goal;
     private List<PowerList> powerLists;
@@ -48,6 +50,18 @@ public class GoalEditFragment extends Fragment {
         if (getArguments() != null) {
             goalId = getArguments().getLong(ID_KEY, 0);
         }
+    }
+
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        root = LayoutInflater.from(getContext()).inflate(R.id.fragment_goal_edit, null, false);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+        Bundle savedInstanceState) {
+        return root;
     }
 }
 

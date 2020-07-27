@@ -3,48 +3,43 @@ package edu.cnm.deepdive.powerlist1.view;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powerlist1.R;
-import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
+import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
-import edu.cnm.deepdive.powerlist1.view.GoalAdapter.Holder;
 import java.util.List;
 
-public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
+public class PowerListAdapter extends RecyclerView.Adapter<PowerListAdapter.Holder> {
 
   private final Context context;
-  private final List<Goal> goals;
+  private final List<PowerList> powerLists;
   private final OnClickListener clickListener;
 
-  public GoalAdapter(Context context, List<Goal> goals,
+  public PowerListAdapter(Context context, List<PowerList> powerLists,
       OnClickListener clickListener) {
     super();
     this.context = context;
-    this.goals = goals;
+    this.powerLists = powerLists;
     this.clickListener = clickListener;
   }
 
   @NonNull
   @Override
   public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View view = LayoutInflater.from(context).inflate(R.layout.item_goal, parent, false);
+    View view = LayoutInflater.from(context).inflate(R.layout.item_list, parent, false);
     return new Holder(view);
   }
 
   @Override
-  public void onBindViewHolder(@NonNull Holder holder, int position) {
-    holder.bind(position);
-  }
+  public void onBindViewHolder(@NonNull Holder holder, int position) { holder.bind(position); }
+
 
   @Override
   public int getItemCount() {
-    return goals.size();
+    return powerLists.size();
   }
 
   class Holder extends RecyclerView.ViewHolder {
@@ -63,8 +58,8 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
     }
 
     private void bind(int position) {
-      Goal item = goals.get(position);
-      goal.setText(item.getTitle());
+      PowerList item = powerLists.get(position);
+      powerList.setText(item.getListTitle());
       description.setText(item.getDescription());
       itemView.setOnClickListener((v) -> clickListener.onClick(v, getAdapterPosition(), item));
     }
@@ -73,7 +68,7 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
 
   public interface OnClickListener {
 
-    void onClick(View view, int position, Goal goal);
+    void onClick(View view, int position, PowerList powerList);
 
   }
 }

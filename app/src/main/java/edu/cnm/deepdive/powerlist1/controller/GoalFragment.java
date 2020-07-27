@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
+import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
 import edu.cnm.deepdive.powerlist1.view.GoalAdapter;
 import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
 

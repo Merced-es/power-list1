@@ -24,7 +24,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
   private final MutableLiveData<Goal> goal;
-  private final MutableLiveData<PowerList> powerList;
+  private final MutableLiveData<List<PowerList>> powerList;
 
   public MainViewModel(@NonNull Application application) {
     super(application);
@@ -45,7 +45,7 @@ public LiveData<List<Goal>> getGoals() {
     return goalRepository.getAll();
 }
 
-  public LiveData<PowerList> getPowerList() {
+  public LiveData<List<PowerList>> getPowerList() {
     return powerList;
   }
 

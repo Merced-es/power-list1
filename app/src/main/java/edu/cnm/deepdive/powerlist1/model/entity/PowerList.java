@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 import edu.cnm.deepdive.powerlist1.model.pojo.ListType;
 
 @Entity(
-    indices = @Index(value = "list_name", unique = true),
+    indices = @Index(value = "list_title", unique = true),
     foreignKeys = @ForeignKey(
         entity = edu.cnm.deepdive.powerlist1.model.entity.Goal.class,
         parentColumns = "goal_id",
@@ -23,8 +23,8 @@ public class PowerList {
     @ColumnInfo(name = "list_id")
     private long listId;
 
-    @ColumnInfo(name = "list_name", collate = ColumnInfo.NOCASE)
-    private String listName;
+    @ColumnInfo(name = "list_title", collate = ColumnInfo.NOCASE)
+    private String listTitle;
 
     @ColumnInfo(name = "goal_id", index = true)
     private Long goalId;
@@ -32,7 +32,9 @@ public class PowerList {
     @ColumnInfo(index = true)
     private ListType type;
 
-
+    @NonNull
+    @ColumnInfo(collate = ColumnInfo.NOCASE)
+    private String description = "";
 
     public Long getListId() { return listId; }
 
@@ -40,12 +42,12 @@ public class PowerList {
         this.listId = listId;
     }
 
-    public String getListName() {
-        return listName;
+    public String getListTitle() {
+        return listTitle;
     }
 
-    public void setListName(String listName) {
-        this.listName = listName;
+    public void setListTitle(String listTitle) {
+        this.listTitle = listTitle;
     }
 
     public Long getGoalId() {
@@ -65,8 +67,17 @@ public class PowerList {
     }
 
     @NonNull
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@NonNull String description) {
+        this.description = description;
+    }
+
+    @NonNull
     @Override
     public String toString() {
-        return super.toString();
+        return description;
     }
 }

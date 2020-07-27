@@ -23,7 +23,7 @@ public class Goal {
 
   @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
-  private String text = "";
+  private String description = "";
 
 
   public long getId() {
@@ -44,18 +44,18 @@ public class Goal {
   }
 
   @NonNull
-  public String getText() {
-    return text;
+  public String getDescription() {
+    return description;
   }
 
-  public void setText(@NonNull String text) {
-    this.text = text;
+  public void setDescription(@NonNull String description) {
+    this.description = description;
   }
 
   @NonNull
   @Override
   public String toString() {
-    return text;
+    return description;
   }
 }
 

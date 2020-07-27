@@ -6,49 +6,13 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   tools:context="edu.cnm.deepdive.powerlist1.controller.PowerListFragment">
 
-  <TextView
-    android:id="@+id/power_list_title"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/lists_to_dos_title"
-    android:textSize="24sp"
-    android:textAlignment="center"
-    android:padding="@dimen/half_margin"
-    android:layout_margin="@dimen/half_margin"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/home_button"
-    />
-
-  <Button
-    android:id="@+id/home_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/half_margin"
-    android:layout_margin="@dimen/half_margin"
-    app:layout_constraintVertical_chainStyle="spread_inside"
-    app:layout_constraintTop_toBottomOf="@id/power_list_title"
-    android:text="@string/home_button"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toTopOf="@id/goals_button"/>
-
-  <Button
-    android:id="@+id/goals_button"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/half_margin"
-    android:layout_margin="@dimen/half_margin"
-    android:textSize="20sp"
-    app:layout_constraintTop_toBottomOf="@id/home_button"
-    android:text="Goals"/>
-
   <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/goal_list"
+    android:id="@+id/powerlist_list"
     android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/goals_button"
-    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     android:orientation="vertical"
     android:background="#FFE0E0E0"

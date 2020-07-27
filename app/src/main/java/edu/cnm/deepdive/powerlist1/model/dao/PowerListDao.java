@@ -8,6 +8,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
+import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
 import io.reactivex.Single;
@@ -30,13 +31,13 @@ public interface PowerListDao {
   Single<Integer> update(PowerList... powerLists);
 
   @Delete
-  Single<Integer> delete(PowerList powerLists);
+  Single<Integer> delete(PowerList... powerLists);
 
   @Query("SELECT * FROM PowerList WHERE list_id = :listId")
   Single<PowerList> selectById(long listId);
 
   @Transaction
-  @Query("SELECT * FROM PowerList ORDER BY list_name")
+  @Query("SELECT * FROM PowerList ORDER BY list_title")
   LiveData<List<PowerListWithItem>> selectAll();
 
 }

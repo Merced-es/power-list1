@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b46088063f62e9f4d89ee7349deaf3ac",
+    "identityHash": "6ca3ec080a5248690f002a1c4d87d422",
     "entities": [
       {
         "tableName": "Goal",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`goal_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL COLLATE NOCASE, `text` TEXT NOT NULL COLLATE NOCASE)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`goal_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL COLLATE NOCASE, `description` TEXT NOT NULL COLLATE NOCASE)",
         "fields": [
           {
             "fieldPath": "id",
@@ -21,8 +21,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "text",
-            "columnName": "text",
+            "fieldPath": "description",
+            "columnName": "description",
             "affinity": "TEXT",
             "notNull": true
           }
@@ -47,7 +47,7 @@
       },
       {
         "tableName": "PowerList",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`list_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `list_name` TEXT COLLATE NOCASE, `goal_id` INTEGER, `type` INTEGER, FOREIGN KEY(`goal_id`) REFERENCES `Goal`(`goal_id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`list_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `list_title` TEXT COLLATE NOCASE, `goal_id` INTEGER, `type` INTEGER, `description` TEXT NOT NULL COLLATE NOCASE, FOREIGN KEY(`goal_id`) REFERENCES `Goal`(`goal_id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
         "fields": [
           {
             "fieldPath": "listId",
@@ -56,8 +56,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "listName",
-            "columnName": "list_name",
+            "fieldPath": "listTitle",
+            "columnName": "list_title",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -72,6 +72,12 @@
             "columnName": "type",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -82,12 +88,12 @@
         },
         "indices": [
           {
-            "name": "index_PowerList_list_name",
+            "name": "index_PowerList_list_title",
             "unique": true,
             "columnNames": [
-              "list_name"
+              "list_title"
             ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_PowerList_list_name` ON `${TABLE_NAME}` (`list_name`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_PowerList_list_title` ON `${TABLE_NAME}` (`list_title`)"
           },
           {
             "name": "index_PowerList_goal_id",
@@ -122,7 +128,7 @@
       },
       {
         "tableName": "Item",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_id` INTEGER NOT NULL, `list_id` INTEGER NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `description` TEXT COLLATE NOCASE, `media_uri` TEXT, `sequence` INTEGER NOT NULL, PRIMARY KEY(`item_id`), FOREIGN KEY(`list_id`) REFERENCES `PowerList`(`list_id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_id` INTEGER NOT NULL, `list_id` INTEGER NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `description` TEXT COLLATE NOCASE, `media_uri` TEXT, PRIMARY KEY(`item_id`), FOREIGN KEY(`list_id`) REFERENCES `PowerList`(`list_id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
         "fields": [
           {
             "fieldPath": "itemId",
@@ -153,12 +159,6 @@
             "columnName": "media_uri",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "sequence",
-            "columnName": "sequence",
-            "affinity": "INTEGER",
-            "notNull": true
           }
         ],
         "primaryKey": {
@@ -191,14 +191,6 @@
               "description"
             ],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_Item_description` ON `${TABLE_NAME}` (`description`)"
-          },
-          {
-            "name": "index_Item_sequence",
-            "unique": false,
-            "columnNames": [
-              "sequence"
-            ],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_Item_sequence` ON `${TABLE_NAME}` (`sequence`)"
           }
         ],
         "foreignKeys": [
@@ -219,7 +211,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b46088063f62e9f4d89ee7349deaf3ac')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6ca3ec080a5248690f002a1c4d87d422')"
     ]
   }
 }

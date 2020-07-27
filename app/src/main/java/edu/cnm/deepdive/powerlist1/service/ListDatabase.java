@@ -70,11 +70,11 @@ public abstract class ListDatabase extends RoomDatabase {
       ListDatabase database = ListDatabase.getInstance();
       GoalDao goalDao = database.getGoalDao();
       Goal goal1 = new Goal();
-      goal1.setTitle("Buy House");
-      goal1.setText("save down payment");
+      goal1.setTitle("Graduate in summer 0f 2021");
+      goal1.setDescription("If I go to school full for the next three terms I will graduate over the summer. I need 30 credits to make it happen.");
       Goal goal2 = new Goal();
-      goal2.setTitle("Lose 6 lbs");
-      goal2.setText("track macros");
+      goal2.setTitle("Lose 6 lbs by the new year");
+      goal2.setDescription("I need to track my macros so I can reach my goal, especially through the holiday season.");
 
       goalDao.insert(goal1, goal2)
           .subscribeOn(Schedulers.io())

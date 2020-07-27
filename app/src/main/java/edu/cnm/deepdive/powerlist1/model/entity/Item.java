@@ -36,9 +36,6 @@ public class Item {
   @ColumnInfo(name = "media_uri")
   private String mediaUri;
 
-  @ColumnInfo(index = true)
-  private int sequence;
-
   public Item() {
   }
 
@@ -72,14 +69,6 @@ public class Item {
 
   public void setMediaUri(String mediaUri) {
     this.mediaUri = mediaUri;
-  }
-
-  public int getSequence() {
-    return sequence;
-  }
-
-  public void setSequence(int sequence) {
-    this.sequence = sequence;
   }
 
   public Long getListId() {
