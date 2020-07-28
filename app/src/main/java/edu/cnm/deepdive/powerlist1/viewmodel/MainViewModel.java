@@ -23,31 +23,29 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private final PowerListRepository powerListRepository;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
+  private final MutableLiveData<List<Goal>> goals;
+  private final MutableLiveData<List<PowerList>> powerLists;
   private final MutableLiveData<Goal> goal;
-  private final MutableLiveData<List<PowerList>> powerList;
 
   public MainViewModel(@NonNull Application application) {
     super(application);
     goalRepository = new GoalRepository(application);
     powerListRepository = new PowerListRepository(application);
     goal = new MutableLiveData<>();
-    powerList = new MutableLiveData<>();
+    goals = new MutableLiveData<>();
+    powerLists = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
 
   }
 
-  public LiveData<Goal> getGoal() {
-    return goal;
-  }
-
-public LiveData<List<Goal>> getGoals() {
-    return goalRepository.getAll();
-}
-
   public LiveData<List<PowerList>> getPowerList() {
-    return powerList;
+    return powerLists;
   }
+
+  public LiveData<List<Goal>> getGoals() { return goalRepository.getAll(); }
+
+  public LiveData<Goal> getGoal() { return goal; }
 
   public LiveData<Throwable> getThrowable() {
     return throwable;

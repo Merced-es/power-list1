@@ -43,6 +43,7 @@ public class Goal {
     this.title = title;
   }
 
+
   @NonNull
   public String getDescription() {
     return description;
@@ -51,6 +52,8 @@ public class Goal {
   public void setDescription(@NonNull String description) {
     this.description = description;
   }
+
+
 
   @NonNull
   @Override

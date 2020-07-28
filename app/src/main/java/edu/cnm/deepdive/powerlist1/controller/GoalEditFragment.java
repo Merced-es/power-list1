@@ -3,7 +3,9 @@ package edu.cnm.deepdive.powerlist1.controller;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
@@ -25,16 +27,17 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass. New Instance creates a new goal.
  */
-public class GoalEditFragment extends DialogFragment {
+public class GoalEditFragment extends DialogFragment implements TextWatcher {
 
     private static final String ID_KEY = "goal_id";
 
     private long goalId;
     private View root;
+    private EditText goalTitle;
     private EditText goalDescription;
     private MainViewModel viewModel;
     private Goal goal;
-    private List<PowerList> powerLists;
+    private AlertDialog dialog;
 
     public static GoalEditFragment newInstance(long goalId) {
         GoalEditFragment fragment = new GoalEditFragment();
@@ -55,7 +58,25 @@ public class GoalEditFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        root = LayoutInflater.from(getContext()).inflate(R.id.fragment_goal_edit, null, false);
+        root = LayoutInflater.from(getContext()).inflate(R.layout.fragment_goal_edit, null, false);
+        goalTitle = root.findViewById(R.id.goal_title);
+        goalDescription = root.findViewById(R.id.description);
+        // TODO Add listeners to fields.
+        dialog = new AlertDialog.Builder(getContext())
+//            .setIcon(android.R.drawable.ic_)
+            .setTitle("Goal Edit")
+            .setView(root)
+            .setPositiveButton(android.R.string.ok,(dlg, which) -> {})
+            .setNegativeButton(android.R.string.cancel, (dlg, which) -> {})
+            .create();
+        dialog.setOnShowListener((dlg) -> checkSubmitCondition());
+        return dialog;
+    }
+
+    private void save() {
+        goal.setDescription(goalDescription.getText().toString().trim());
+        PowerList powerList = null;
+        viewModel.saveGoal(goal);
     }
 
     @Override
@@ -63,5 +84,42 @@ public class GoalEditFragment extends DialogFragment {
         Bundle savedInstanceState) {
         return root;
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
+        if (goalId != 0) {
+            viewModel.getGoal().observe(getViewLifecycleOwner(), (goal) -> {
+                if (goal != null) {
+                    goalDescription.setText(goal.getDescription());
+                }
+            });
+            viewModel.setGoalId(goalId);
+        } else {
+            goal = new Goal();
+        }
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        checkSubmitCondition();
+    }
+
+    private void checkSubmitCondition() {
+        Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positive.setEnabled(!goalDescription.getText().toString().trim().isEmpty());
+    }
+
 }
+
+
 

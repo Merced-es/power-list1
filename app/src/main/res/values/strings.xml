@@ -17,6 +17,7 @@
   <string name="power_lists">Power Lists</string>
   <string name="lists_to_dos_title">Lists and To-Dos</string>
   <string name="goals_title">Goals</string>
+  <string name="description">Description</string>
 
 
 </resources>

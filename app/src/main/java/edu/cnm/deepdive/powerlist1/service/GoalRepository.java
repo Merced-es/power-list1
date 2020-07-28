@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.powerlist1.model.dao.GoalDao;
 import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
+import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;

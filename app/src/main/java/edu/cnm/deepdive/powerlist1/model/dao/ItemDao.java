@@ -32,10 +32,6 @@ public interface ItemDao {
   @Delete
   Single<Integer> delete(Item... items);
 
-  @Transaction
-  @Query("SELECT * FROM Item ORDER BY name")
-  LiveData<List<ItemWithList>> selectAll();
-
   @Query("SELECT * FROM Item WHERE item_id = :itemId")
   Single<Item> selectById(long itemId);
 

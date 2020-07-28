@@ -50,7 +50,10 @@ public class GoalFragment extends Fragment implements GoalAdapter.OnClickListene
         editGoal(goal.getId());
     }
 
+
     private void editGoal(long goalId) {
         // TODO display goal edit dialog fragment.
+        GoalEditFragment fragment = GoalEditFragment.newInstance(goalId);
+        fragment.show(getChildFragmentManager(), fragment.getClass().getName());
     }
 }

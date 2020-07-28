@@ -25,7 +25,7 @@
     tools:layout="@layout/fragment_goal">
     <action
       android:id="@+id/action_goalFragment2_to_goalEditFragment"
-      app:destination="@id/goal_edit_fragment"/>
+      app:destination="@id/fragment_edit_goal"/>
     <action
       android:id="@+id/goal_to_powerlist"
       app:destination="@id/power_list_fragment"/>
@@ -50,7 +50,7 @@
       app:destination="@id/goal_fragment2"/>
   </fragment>
   <fragment
-    android:id="@+id/goal_edit_fragment"
+    android:id="@+id/fragment_edit_goal"
     android:name="edu.cnm.deepdive.powerlist1.controller.GoalEditFragment"
     android:label="fragment_goal_edit"
     tools:layout="@layout/fragment_goal_edit">

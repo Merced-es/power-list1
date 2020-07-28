@@ -28,10 +28,6 @@ public class ItemRepository {
     itemDao = database.getItemDao();
   }
 
-  public LiveData<List<ItemWithList>> getAll() {
-    return itemDao.selectAll();
-  }
-
   public Single<Item> get(long id) {
     return itemDao.selectById(id)
         .subscribeOn(Schedulers.io());
