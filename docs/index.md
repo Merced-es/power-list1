@@ -34,7 +34,31 @@ An interior designer with a collection of ideas.
 for their homes, and I need a check list for my "To-Do's" each day 
 project I am working on, so I complete my projects on time.
 
+### Summary of Current State of The App
 
+The app is currently in a compiling state. The user can navigate from the home fragment to the goal fragment
+and the powerlists fragment. The goals fragment directs the user to the goal edit fragment that is in working 
+condition. The goals fragment and goal edit fragment are complete. Navigation to the powerlists fragment works,
+however, the data created in the database is not displaying. I was unable to figure out how to get it to
+display. The data has been added to the Listdatabase class. The floating action button on the powerlists fragment
+does work. An edit dialog fragment will appear, and you can type into the title and description fields, but
+the created list does not save or display on the recycler view.
+
+The Google Sign in service code has been created in the app, however a key was not generated. I was unable to 
+figure out how to implement the option drop down in the top right corner of the screen to give a "Sign Out" option. 
+This implementation is in an imcomplete state.
+
+I would like to complete the powerlist recycler view so the lists are displayed. The code is created, but I am 
+missing something that displays this data. 
+A few improvements I'd like to make to this app are adding an options button to the top right corner 
+of each fragment that allows the user to "Sign Out". I'd like to add a time stamp to the goals and powerlists 
+that are created so the use can see when their ideas were created. 
+
+Some stretch goals I have are to implement items into my powerlists that allow the use to check off as they 
+complete them. This will allow the user to be proactive in the app and give them a sense of accomplishment. 
+I also want to link the powerlists to the goals. In the data I have added to the listdatabase, I have matched the titles
+of the goals and powerlists so they could eventually link. I could implement an autocomplete idea into 
+the title field when the user creates a title in each fragment.
 
 ### Design documentation
 
