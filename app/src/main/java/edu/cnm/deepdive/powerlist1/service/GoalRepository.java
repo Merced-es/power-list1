@@ -13,14 +13,14 @@ import java.util.List;
 
 public class GoalRepository {
 
-  private final edu.cnm.deepdive.powerlist1.service.ListDatabase database;
+  private final ListDatabase database;
   private final GoalDao goalDao;
   private final ItemDao itemDao;
   private final Context context;
 
   public GoalRepository(Context context) {
     this.context = context;
-    database = edu.cnm.deepdive.powerlist1.service.ListDatabase.getInstance();
+    database = ListDatabase.getInstance();
     goalDao = database.getGoalDao();
     itemDao = database.getItemDao();
   }

@@ -5,13 +5,12 @@ import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.powerlist1.model.dao.GoalDao;
 import edu.cnm.deepdive.powerlist1.model.dao.ItemDao;
 import edu.cnm.deepdive.powerlist1.model.dao.PowerListDao;
-import edu.cnm.deepdive.powerlist1.model.entity.Item;
+import edu.cnm.deepdive.powerlist1.model.entity.Goal;
 import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
-import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
+import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItems;
 import io.reactivex.Completable;
 import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
-import java.util.Collection;
 import java.util.List;
 
 public class PowerListRepository {
@@ -35,7 +34,11 @@ public class PowerListRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  public LiveData<List<PowerListWithItem>> getAll() {
+  public LiveData<List<PowerListWithItems>> getAll() {
+    return powerListDao.selectAllWithItem();
+  }
+
+  public LiveData<List<PowerList>> getAllWithItem() {
     return powerListDao.selectAll();
   }
 

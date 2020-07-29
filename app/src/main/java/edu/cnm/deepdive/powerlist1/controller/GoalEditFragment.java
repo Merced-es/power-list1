@@ -4,8 +4,9 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import androidx.annotation.NonNull;
@@ -13,16 +14,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
 import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass. New Instance creates a new goal.
@@ -60,13 +55,15 @@ public class GoalEditFragment extends DialogFragment implements TextWatcher {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         root = LayoutInflater.from(getContext()).inflate(R.layout.fragment_goal_edit, null, false);
         goalTitle = root.findViewById(R.id.goal_title);
-        goalDescription = root.findViewById(R.id.description);
+        goalTitle.addTextChangedListener(this);
+        goalDescription = root.findViewById(R.id.goal_description);
+        goalDescription.addTextChangedListener(this);
         // TODO Add listeners to fields.
         dialog = new AlertDialog.Builder(getContext())
 //            .setIcon(android.R.drawable.ic_)
-            .setTitle("Goal Edit")
+            .setTitle("Goals")
             .setView(root)
-            .setPositiveButton(android.R.string.ok,(dlg, which) -> {})
+            .setPositiveButton(android.R.string.ok,(dlg, which) -> save())
             .setNegativeButton(android.R.string.cancel, (dlg, which) -> {})
             .create();
         dialog.setOnShowListener((dlg) -> checkSubmitCondition());
@@ -75,7 +72,7 @@ public class GoalEditFragment extends DialogFragment implements TextWatcher {
 
     private void save() {
         goal.setDescription(goalDescription.getText().toString().trim());
-        PowerList powerList = null;
+        goal.setTitle(goalTitle.getText().toString().trim());
         viewModel.saveGoal(goal);
     }
 
@@ -85,14 +82,17 @@ public class GoalEditFragment extends DialogFragment implements TextWatcher {
         return root;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(getActivity()).get(MainViewModel.class);
         if (goalId != 0) {
             viewModel.getGoal().observe(getViewLifecycleOwner(), (goal) -> {
+                this.goal = goal;
                 if (goal != null) {
                     goalDescription.setText(goal.getDescription());
+                    goalTitle.setText(goal.getTitle());
                 }
             });
             viewModel.setGoalId(goalId);
@@ -116,7 +116,10 @@ public class GoalEditFragment extends DialogFragment implements TextWatcher {
 
     private void checkSubmitCondition() {
         Button positive = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
-        positive.setEnabled(!goalDescription.getText().toString().trim().isEmpty());
+        positive.setEnabled(
+            !goalDescription.getText().toString().trim().isEmpty()
+            && !goalTitle.getText().toString().trim().isEmpty()
+        );
     }
 
 }

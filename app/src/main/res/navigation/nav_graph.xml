@@ -24,14 +24,11 @@
     android:label="fragment_goal"
     tools:layout="@layout/fragment_goal">
     <action
-      android:id="@+id/action_goalFragment2_to_goalEditFragment"
+      android:id="@+id/goal_to_goal_edit"
       app:destination="@id/fragment_edit_goal"/>
     <action
       android:id="@+id/goal_to_powerlist"
       app:destination="@id/power_list_fragment"/>
-    <action
-      android:id="@+id/goal_to_home"
-      app:destination="@id/home_fragment"/>
   </fragment>
   <fragment
     android:id="@+id/power_list_fragment"
@@ -39,12 +36,8 @@
     android:label="fragment_power_list"
     tools:layout="@layout/fragment_power_list">
     <action
-      android:id="@+id/action_powerListFragment_to_powerListEdit"
+      android:id="@+id/powerlist_to_powerlist_edit"
       app:destination="@id/power_list_edit"/>
-
-    <action
-      android:id="@+id/powerlist_to_home"
-      app:destination="@id/home_fragment"/>
     <action
       android:id="@+id/powerlist_to_goal"
       app:destination="@id/goal_fragment2"/>
@@ -60,7 +53,7 @@
   </fragment>
   <fragment
     android:id="@+id/power_list_edit"
-    android:name="edu.cnm.deepdive.powerlist1.controller.PowerListEdit"
+    android:name="edu.cnm.deepdive.powerlist1.controller.PowerListEditFragment"
     android:label="fragment_power_list_edit"
     tools:layout="@layout/fragment_power_list_edit">
     <action

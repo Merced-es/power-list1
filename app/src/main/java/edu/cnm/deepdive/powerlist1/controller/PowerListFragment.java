@@ -1,23 +1,18 @@
 package edu.cnm.deepdive.powerlist1.controller;
 
 import android.os.Bundle;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
-import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
-import edu.cnm.deepdive.powerlist1.view.GoalAdapter;
+import edu.cnm.deepdive.powerlist1.service.PowerListRepository;
 import edu.cnm.deepdive.powerlist1.view.PowerListAdapter;
 import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
 
@@ -46,7 +41,7 @@ public class PowerListFragment extends Fragment implements PowerListAdapter.OnCl
     super.onViewCreated(view, savedInstanceState);
     mainViewModel = new ViewModelProvider(getActivity())
         .get(MainViewModel.class);
-    mainViewModel.getPowerList().observe(getViewLifecycleOwner(), (powerLists) -> {
+    mainViewModel.getPowerLists().observe(getViewLifecycleOwner(), (powerLists) -> {
       PowerListAdapter adapter =
           new PowerListAdapter(getContext(), powerLists, this);
       powerlistList.setAdapter(adapter);
@@ -60,5 +55,8 @@ public class PowerListFragment extends Fragment implements PowerListAdapter.OnCl
 
   private void editPowerList(long powerListId) {
   // TODO display powerlist edit dialog fragment.
-    }
+    PowerListEditFragment fragment = PowerListEditFragment.newInstance(powerListId);
+    fragment.show(getChildFragmentManager(), fragment.getClass().getName());
+
+  }
 }

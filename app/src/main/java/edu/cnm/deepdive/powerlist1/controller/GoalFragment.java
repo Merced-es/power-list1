@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
 import edu.cnm.deepdive.powerlist1.view.GoalAdapter;
 import edu.cnm.deepdive.powerlist1.viewmodel.MainViewModel;
 
@@ -52,7 +50,6 @@ public class GoalFragment extends Fragment implements GoalAdapter.OnClickListene
 
 
     private void editGoal(long goalId) {
-        // TODO display goal edit dialog fragment.
         GoalEditFragment fragment = GoalEditFragment.newInstance(goalId);
         fragment.show(getChildFragmentManager(), fragment.getClass().getName());
     }

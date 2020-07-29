@@ -3,17 +3,12 @@ package edu.cnm.deepdive.powerlist1.view;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.Goal;
-import edu.cnm.deepdive.powerlist1.model.pojo.GoalWithList;
-import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
-import edu.cnm.deepdive.powerlist1.view.GoalAdapter.Holder;
 import java.util.List;
 
 public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
@@ -59,7 +54,7 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.Holder> {
       this.itemView = itemView;
       description = itemView.findViewById(R.id.description);
       goal = itemView.findViewById(R.id.goal);
-      powerList = itemView.findViewById(R.id.powerList);
+      powerList = itemView.findViewById(R.id.title);
     }
 
     private void bind(int position) {

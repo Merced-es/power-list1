@@ -43,7 +43,6 @@ public class Goal {
     this.title = title;
   }
 
-
   @NonNull
   public String getDescription() {
     return description;
@@ -60,6 +59,7 @@ public class Goal {
   public String toString() {
     return description;
   }
+
 }
 
 

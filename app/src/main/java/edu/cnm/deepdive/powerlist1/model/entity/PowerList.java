@@ -78,6 +78,6 @@ public class PowerList {
     @NonNull
     @Override
     public String toString() {
-        return description;
+        return listTitle;
     }
 }

@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "6ca3ec080a5248690f002a1c4d87d422",
+    "identityHash": "24ffaca8849ab2878a9ba00eae437367",
     "entities": [
       {
         "tableName": "Goal",
@@ -128,7 +128,7 @@
       },
       {
         "tableName": "Item",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_id` INTEGER NOT NULL, `list_id` INTEGER NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `description` TEXT COLLATE NOCASE, `media_uri` TEXT, PRIMARY KEY(`item_id`), FOREIGN KEY(`list_id`) REFERENCES `PowerList`(`list_id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`item_id` INTEGER NOT NULL, `list_id` INTEGER NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `description` TEXT COLLATE NOCASE, `media_uri` TEXT, `completed` INTEGER NOT NULL, PRIMARY KEY(`item_id`), FOREIGN KEY(`list_id`) REFERENCES `PowerList`(`list_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "itemId",
@@ -159,6 +159,12 @@
             "columnName": "media_uri",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "completed",
+            "columnName": "completed",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -196,7 +202,7 @@
         "foreignKeys": [
           {
             "table": "PowerList",
-            "onDelete": "SET NULL",
+            "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
               "list_id"
@@ -211,7 +217,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6ca3ec080a5248690f002a1c4d87d422')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '24ffaca8849ab2878a9ba00eae437367')"
     ]
   }
 }

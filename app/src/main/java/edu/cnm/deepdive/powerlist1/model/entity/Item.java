@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey;
         entity = PowerList.class,
         parentColumns = "list_id",
         childColumns = "list_id",
-        onDelete = ForeignKey.SET_NULL
+        onDelete = ForeignKey.CASCADE
     )
 )
 
@@ -35,6 +35,8 @@ public class Item {
 
   @ColumnInfo(name = "media_uri")
   private String mediaUri;
+
+  private boolean completed;
 
   public Item() {
   }
@@ -77,5 +79,13 @@ public class Item {
 
   public void setListId(long listId) {
     this.listId = listId;
+  }
+
+  public boolean isCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(boolean completed) {
+    this.completed = completed;
   }
 }

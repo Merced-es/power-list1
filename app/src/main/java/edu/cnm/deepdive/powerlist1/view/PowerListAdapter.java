@@ -4,21 +4,23 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.powerlist1.R;
 import edu.cnm.deepdive.powerlist1.model.entity.PowerList;
-import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItem;
+import edu.cnm.deepdive.powerlist1.model.pojo.PowerListWithItems;
 import java.util.List;
 
 public class PowerListAdapter extends RecyclerView.Adapter<PowerListAdapter.Holder> {
 
   private final Context context;
-  private final List<PowerList> powerLists;
+  private final List<PowerListWithItems> powerLists;
   private final OnClickListener clickListener;
 
-  public PowerListAdapter(Context context, List<PowerList> powerLists,
+  public PowerListAdapter(Context context, List<PowerListWithItems> powerLists,
       OnClickListener clickListener) {
     super();
     this.context = context;
@@ -36,7 +38,6 @@ public class PowerListAdapter extends RecyclerView.Adapter<PowerListAdapter.Hold
   @Override
   public void onBindViewHolder(@NonNull Holder holder, int position) { holder.bind(position); }
 
-
   @Override
   public int getItemCount() {
     return powerLists.size();
@@ -47,21 +48,38 @@ public class PowerListAdapter extends RecyclerView.Adapter<PowerListAdapter.Hold
     private final View itemView;
     private final TextView description;
     private final TextView goal;
-    private final TextView powerList;
+    private final TextView title;
+    private final ImageView collapse;
+    private final ImageView expand;
+    private final ListView items;
 
     public Holder(@NonNull View itemView) {
       super(itemView);
       this.itemView = itemView;
       description = itemView.findViewById(R.id.description);
       goal = itemView.findViewById(R.id.goal);
-      powerList = itemView.findViewById(R.id.powerList);
+      title = itemView.findViewById(R.id.title);
+      collapse = itemView.findViewById(R.id.collapse);
+      expand = itemView.findViewById(R.id.expand);
+      items = itemView.findViewById(R.id.items);
     }
 
     private void bind(int position) {
-      PowerList item = powerLists.get(position);
-      powerList.setText(item.getListTitle());
-      description.setText(item.getDescription());
-      itemView.setOnClickListener((v) -> clickListener.onClick(v, getAdapterPosition(), item));
+      PowerListWithItems powerList = powerLists.get(position);
+      title.setText(powerList.getListTitle());
+      description.setText(powerList.getDescription());
+      if (powerList.isExpanded()) {
+        collapse.setVisibility(View.VISIBLE);
+        collapse.setOnClickListener((v) -> powerList.setExpanded(false));
+        items.setVisibility(View.VISIBLE);
+        expand.setVisibility(View.GONE);
+      } else {
+        collapse.setVisibility(View.GONE);
+        items.setVisibility(View.GONE);
+        expand.setVisibility(View.VISIBLE);
+        expand.setOnClickListener((v) -> powerList.setExpanded(true));
+      }
+//      itemView.setOnClickListener((v) -> clickListener.onClick(v, getAdapterPosition(), powerList));
     }
 
   }
