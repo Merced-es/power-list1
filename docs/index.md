@@ -15,11 +15,25 @@ photos of whatever it is that you are working towards. These photos will display
 >* Check List
 >* File uploader
 
+## Elements
+
+####- [Instructions]()
+> * Build instructions
+> * Basic User Instructions
+####- [Wireframe Diagram](wireframe.md)
+####- [ERD Diagram](erd.md)
+####- [Entity Classes](https://github.com/Merced-es/power-list1/tree/master/app/src/main/java/edu/cnm/deepdive/powerlist1/model/entity)
+####- [DAO Interfaces](https://github.com/Merced-es/power-list1/tree/master/app/src/main/java/edu/cnm/deepdive/powerlist1/model/dao)
+####- [Database Class](https://github.com/Merced-es/power-list1/blob/master/app/src/main/java/edu/cnm/deepdive/powerlist1/service/ListDatabase.java)
+####- [Repository Classes](https://github.com/Merced-es/power-list1/tree/master/app/src/main/java/edu/cnm/deepdive/powerlist1/service)
+####- [Dependencies](https://github.com/Merced-es/power-list1/blob/master/app/build.gradle)
+####- [Copyrights & Licenses](https://github.com/Merced-es/power-list1/blob/master/docs/notice.md)
+
 ### Intended Users
 
 A college student with a part-time job and involved in extra-curricular activities.
    > As a busy college student, I need an app that will allow me to check off the most important things I need
-to get done each daybefore I go to sleep.
+to get done each day before I go to sleep.
 
 Someone who wants to lose 15 lbs by Thanksgiving.
    > As someone who wants to lose some weight by Thanksgiving, I am looking for an app that will 
@@ -58,7 +72,8 @@ Some stretch goals I have are to implement items into my powerlists that allow t
 complete them. This will allow the user to be proactive in the app and give them a sense of accomplishment. 
 I also want to link the powerlists to the goals. In the data I have added to the listdatabase, I have matched the titles
 of the goals and powerlists so they could eventually link. I could implement an autocomplete idea into 
-the title field when the user creates a title in each fragment.
+the title field when the user creates a title in each fragment. A file uploader is another stretch goal that I'd like
+to implement into the powerlists.
 
 ### Design documentation
 
@@ -67,7 +82,7 @@ the title field when the user creates a title in each fragment.
 
 ### Device-based Services
 
-* Google Sign In
-> Google Sign In will allow you to sign into your account that holds all of your lists and ideas in 
->a cloud. A reference to Google Sign In can be found [here](https://developers.google.com/identity/sign-in/web/sign-in).
+* [Google Sign-In](https://developers.google.com/identity/sign-in/android/start-integrating)
 
+> Google Sign In will allow you to sign into your account giving you access to your power lists from anywhere. 
+>This service will be required to use the app.

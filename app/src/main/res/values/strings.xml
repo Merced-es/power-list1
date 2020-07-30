@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">power-list1</string>
+  <string name="app_name">Power List</string>
   <string name="action_settings">Settings</string>
   <!-- Strings used for fragments for navigation -->
   <string name="home_fragment">Home Fragment</string>
