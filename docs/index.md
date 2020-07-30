@@ -17,7 +17,7 @@ photos of whatever it is that you are working towards. These photos will display
 
 ## Elements
 
-####- [Instructions]()
+####- [Instructions](https://github.com/Merced-es/power-list1/blob/master/docs/instructions.md)
 > * Build instructions
 > * Basic User Instructions
 ####- [Wireframe Diagram](wireframe.md)
